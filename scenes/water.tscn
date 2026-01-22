@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://du4mnrjscy7dd"]
+
+[ext_resource type="Material" uid="uid://dmxsjpbtksq3e" path="res://shaders/water_shader_material.tres" id="1_bdk6y"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_s3811"]
+subdivide_width = 400
+subdivide_depth = 400
+orientation = 1
+
+[node name="Water" type="MeshInstance3D"]
+cast_shadow = 0
+mesh = SubResource("QuadMesh_s3811")
+surface_material_override/0 = ExtResource("1_bdk6y")
+metadata/_edit_lock_ = true

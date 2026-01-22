@@ -1,0 +1,49 @@
+[gd_scene load_steps=18 format=3 uid="uid://bubyk3mhr3mgg"]
+
+[ext_resource type="Image" uid="uid://dbadwi86ygvi4" path="res://scenes/Terrain/Heightmap_0_0.res" id="1_b0j75"]
+[ext_resource type="Texture2D" uid="uid://bhob75nndgu8d" path="res://assets/textures/Grass001_1K-JPG/Grass001_1K-JPG_Color.jpg" id="1_t5u1y"]
+[ext_resource type="Texture2D" uid="uid://cdgbhqlesh58s" path="res://assets/textures/Grass001_1K-JPG/Grass001_1K-JPG_NormalGL.jpg" id="2_4h6kj"]
+[ext_resource type="Texture2D" uid="uid://cf55bxhkoay6d" path="res://assets/textures/Grass001_1K-JPG/Grass001_1K-JPG_Roughness.jpg" id="3_e80jd"]
+[ext_resource type="Texture2D" uid="uid://iorgjmjcfjqg" path="res://assets/textures/Ground080_1K-JPG/Ground080_1K-JPG_Color.jpg" id="4_64y80"]
+[ext_resource type="Texture2D" uid="uid://ygsnngukj4s2" path="res://assets/textures/Ground080_1K-JPG/Ground080_1K-JPG_NormalGL.jpg" id="5_wblkl"]
+[ext_resource type="Texture2D" uid="uid://h3ouhylibu0c" path="res://assets/textures/Ground080_1K-JPG/Ground080_1K-JPG_Roughness.jpg" id="6_m0l5f"]
+[ext_resource type="Texture2D" uid="uid://bem5cx78diqdx" path="res://assets/textures/Rock058_1K-JPG/Rock058_1K-JPG_Color.jpg" id="7_lrwty"]
+[ext_resource type="Texture2D" uid="uid://dfot15g7047jl" path="res://assets/textures/Rock058_1K-JPG/Rock058_1K-JPG_NormalGL.jpg" id="8_pfqjl"]
+[ext_resource type="Texture2D" uid="uid://djycjm6corvtm" path="res://assets/textures/Rock058_1K-JPG/Rock058_1K-JPG_Roughness.jpg" id="9_xbcou"]
+[ext_resource type="Image" uid="uid://cnlafhn7pbr8f" path="res://scenes/Terrain/Splatmap_0_0_0.res" id="11_4h6kj"]
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_pii75"]
+name = "Grass"
+albedoTexture = ExtResource("1_t5u1y")
+normalTexture = ExtResource("2_4h6kj")
+roughnessTexture = ExtResource("3_e80jd")
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_kulph"]
+name = "Sand"
+albedoTexture = ExtResource("4_64y80")
+normalTexture = ExtResource("5_wblkl")
+roughnessTexture = ExtResource("6_m0l5f")
+
+[sub_resource type="TextureSetResource" id="TextureSetResource_dt1im"]
+name = "Rock"
+albedoTexture = ExtResource("7_lrwty")
+normalTexture = ExtResource("8_pfqjl")
+roughnessTexture = ExtResource("9_xbcou")
+
+[sub_resource type="TextureSetsResource" id="TextureSetsResource_ncvx8"]
+textureSets = Array[TextureSetResource]([SubResource("TextureSetResource_pii75"), SubResource("TextureSetResource_kulph"), SubResource("TextureSetResource_dt1im")])
+
+[sub_resource type="ZoneResource" id="ZoneResource_oqplg"]
+heightMapImage = ExtResource("1_b0j75")
+splatmapsImage = Array[Image]([ExtResource("11_4h6kj")])
+
+[sub_resource type="ZonesResource" id="ZonesResource_vjhlg"]
+zones = Array[ZoneResource]([SubResource("ZoneResource_oqplg")])
+
+[node name="Terrain" type="Node3D"]
+
+[node name="TerraBrush" type="TerraBrush" parent="."]
+dataPath = "res://scenes/Terrain"
+textureSets = SubResource("TextureSetsResource_ncvx8")
+terrainZones = SubResource("ZonesResource_vjhlg")
+metadata/_edit_lock_ = true
